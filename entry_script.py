@@ -1,5 +1,6 @@
 import cv2
 from ultralytics import YOLO
+from detect_traffic import run_traffic_detection
 
 REMOTE_STREAM_USE_RTSP      = True
 REMOTE_STREAM_IPV4_ADDRESS  = "192.168.1.10"
@@ -37,6 +38,7 @@ def make_url_based_on_conf():
     resource_path = "cam/realmonitor"
     channel_num = 1
     subtype_num = 0
+
     if REMOTE_STREAM_USE_RTSP:
         remote_protocol = "rtsp"
         remote_port = 554
