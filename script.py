@@ -8,6 +8,8 @@ demo_vid_file_type = "mp4"
 demo_vid_dir = "Sample Data"
 if DEMO_ERROR_VIDEO:
     demo_vid_name = f"vid-with-malicious-traffic.{demo_vid_file_type}"
+else:
+    demo_vid_name = f"vid-with-normal-traffic.{demo_vid_file_type}"
 
 # Credentials and Other Details to Fill-Up Livestream URL
 user_name = "hwjk"
