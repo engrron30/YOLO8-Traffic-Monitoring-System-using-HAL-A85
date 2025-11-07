@@ -1,9 +1,9 @@
 import cv2
 from ultralytics import YOLO
 
-DEMO_LOCAL_STREAM = True
-DEMO_ERROR_VIDEO = False
-# Demo Links
+# Local Demo Files Variables
+DEMO_LOCAL_STREAM = True            # Set this true if to detect local video for testing
+DEMO_ERROR_VIDEO = False            # Set this true if traffic with collision is to test
 demo_vid_file_type = "mp4"
 demo_vid_dir = "Sample Data"
 if DEMO_ERROR_VIDEO:
