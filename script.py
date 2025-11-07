@@ -4,7 +4,7 @@ from ultralytics import YOLO
 DEMO_LOCAL_STREAM = True            # Set this true if to detect local video for testing
 DEMO_ERROR_VIDEO = False            # Set this true if traffic with collision is to test
 
-# Local Demo Files Variables
+# Local Demo Files Defines
 demo_vid_file_type = "mp4"
 demo_vid_dir = "Sample Data"
 if DEMO_ERROR_VIDEO:
@@ -12,7 +12,7 @@ if DEMO_ERROR_VIDEO:
 else:
     demo_vid_name = f"vid-with-normal-traffic.{demo_vid_file_type}"
 
-# Credentials and Other Details to Fill-Up Livestream URL
+# Remote Live Stream Defines
 user_name = "hwjk"
 user_pass = "pa6tb7"
 ipv4_addr = "192.168.1.10"
