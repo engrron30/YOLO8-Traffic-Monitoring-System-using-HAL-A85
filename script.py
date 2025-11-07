@@ -14,6 +14,8 @@ channel_num = 1
 subtype_num = 0
 
 # Live Stream Link
+if DEMO_LOCAL_STREAM:
+    url = f"Videos/"
 url = f"{protocol}://{user_name}:{user_pass}@{ipv4_addr}:{rtsp_port}/{resource_path}?channel={channel_num}&subtype={subtype_num}"
 
 # Load YOLOv8 model (pre-trained on COCO)
