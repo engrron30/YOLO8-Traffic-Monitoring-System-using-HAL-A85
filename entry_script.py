@@ -1,7 +1,7 @@
 import cv2
 from ultralytics import YOLO
 
-def traffic_detection_welcoming_notes:
+def traffic_detection_welcoming_notes():
     print("#################################################")
     print("###                                           ###")
     print("###           TRAFFIC MONITORING              ###")
@@ -101,3 +101,4 @@ def main():
     cv2.destroyAllWindows()
 
 if __name__ == "__main__":
+    traffic_detection_welcoming_notes()
