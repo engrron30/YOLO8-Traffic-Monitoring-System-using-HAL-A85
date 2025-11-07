@@ -28,7 +28,7 @@ else:
     remote_port = 80
 
 if DEMO_LOCAL_STREAM:
-    url = f"{demo_vid_dir}/{demo_vid_file_type}"
+    url = f"{demo_vid_dir}/{demo_vid_name}"
 else:
     url = f"{remote_protocol}://{user_name}:{user_pass}@{ipv4_addr}:{remote_port}/{resource_path}?channel={channel_num}&subtype={subtype_num}"
 
