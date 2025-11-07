@@ -1,6 +1,14 @@
 import cv2
 from ultralytics import YOLO
 
+def traffic_detection_welcoming_notes:
+    print("#################################################")
+    print("###                                           ###")
+    print("###           TRAFFIC MONITORING              ###")
+    print("###         SYSTEM with AI-DETECTION          ###")
+    print("###                                           ###")
+    print("#################################################")
+
 def main():
     DEMO_LOCAL_STREAM = True            # Set this true if to detect local video for testing
     DEMO_ERROR_VIDEO = False            # Set this true if traffic with collision is to test
@@ -93,9 +101,3 @@ def main():
     cv2.destroyAllWindows()
 
 if __name__ == "__main__":
-    print("#################################################")
-    print("###                                           ###")
-    print("###           TRAFFIC MONITORING              ###")
-    print("###         SYSTEM with AI-DETECTION          ###")
-    print("###                                           ###")
-    print("#################################################")
