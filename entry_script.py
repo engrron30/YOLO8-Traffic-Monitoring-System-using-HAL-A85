@@ -5,6 +5,10 @@ DEMO_LOCAL_STREAM           = True      # Set this true if to detect local video
 DEMO_ERROR_VIDEO            = False     # Set this true if traffic with collision is to test
 REMOTE_STREAM_USE_RTSP      = True
 
+DEMO_VID_FILE_TYPE = "mp4"
+DEMO_VID_DIR = "Sample Data"
+
+
 def traffic_detection_welcoming_notes():
     print("#################################################")
     print("#################################################")
@@ -14,6 +18,35 @@ def traffic_detection_welcoming_notes():
     print("###                                           ###")
     print("#################################################")
     print("#################################################")
+
+# Prepare configuration before running the actual live stream with
+#   AI Detection to define which file or stream to use.
+def build_conf():
+    if DEMO_ERROR_VIDEO:
+        demo_vid_name = f"vid-with-malicious-traffic.{DEMO_VID_FILE_TYPE}"
+    else:
+        demo_vid_name = f"vid-with-normal-traffic.{DEMO_VID_FILE_TYPE}"
+
+    # Remote Live Stream Defines
+    user_name = "hwjk"
+    user_pass = "pa6tb7"
+    ipv4_addr = "192.168.1.10"
+    resource_path = "cam/realmonitor"
+    channel_num = 1
+    subtype_num = 0
+    if REMOTE_STREAM_USE_RTSP:
+        remote_protocol = "rtsp"
+        remote_port = 554
+    else:
+        remote_protocol = "http"
+        remote_port = 80
+
+    if DEMO_LOCAL_STREAM:
+        url = f"{DEMO_VID_DIR}/{demo_vid_name}"
+    else:
+        url = f"{remote_protocol}://{user_name}:{user_pass}@{ipv4_addr}:{remote_port}/{resource_path}?channel={channel_num}&subtype={subtype_num}"
+
+    return url
 
 def main():
     # Local Demo Files Defines
@@ -104,3 +137,4 @@ def main():
 
 if __name__ == "__main__":
     traffic_detection_welcoming_notes()
+    url = build_conf()
