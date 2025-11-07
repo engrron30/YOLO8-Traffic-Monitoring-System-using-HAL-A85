@@ -1,5 +1,3 @@
-import cv2
-from ultralytics import YOLO
 from detect_traffic import run_traffic_detection
 
 REMOTE_STREAM_USE_RTSP      = True
