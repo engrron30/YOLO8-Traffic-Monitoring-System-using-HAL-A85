@@ -1,15 +1,15 @@
 import cv2
 from ultralytics import YOLO
 
-DEMO_LOCAL_STREAM           = True      # Set this true if to detect local video for testing
-DEMO_ERROR_VIDEO            = False     # Set this true if traffic with collision is to test
 REMOTE_STREAM_USE_RTSP      = True
 REMOTE_STREAM_IPV4_ADDRESS  = "192.168.1.10"
 REMOTE_STREAM_USER_NAME     = "hwjk"
 REMOTE_STREAM_USER_PASSWORD = "pa6tb7"
 
-DEMO_VID_FILE_TYPE = "mp4"
-DEMO_VID_DIR = "Sample Data"
+DEMO_LOCAL_STREAM           = True      # Set this true if to detect local video for testing
+DEMO_ERROR_VIDEO            = False     # Set this true if traffic with collision is to test
+DEMO_VID_FILE_TYPE          = "mp4"
+DEMO_VID_DIR                = "Sample Data"
 
 
 def traffic_detection_welcoming_notes():
