@@ -21,7 +21,7 @@ def traffic_detection_welcoming_notes():
 
 # Prepare configuration before running the actual live stream with
 #   AI Detection to define which file or stream to use.
-def build_conf():
+def make_url_based_on_conf():
     if DEMO_ERROR_VIDEO:
         demo_vid_name = f"vid-with-malicious-traffic.{DEMO_VID_FILE_TYPE}"
     else:
@@ -42,11 +42,11 @@ def build_conf():
         remote_port = 80
 
     if DEMO_LOCAL_STREAM:
-        url = f"{DEMO_VID_DIR}/{demo_vid_name}"
+        conf_url = f"{DEMO_VID_DIR}/{demo_vid_name}"
     else:
-        url = f"{remote_protocol}://{user_name}:{user_pass}@{ipv4_addr}:{remote_port}/{resource_path}?channel={channel_num}&subtype={subtype_num}"
+        conf_url = f"{remote_protocol}://{user_name}:{user_pass}@{ipv4_addr}:{remote_port}/{resource_path}?channel={channel_num}&subtype={subtype_num}"
 
-    return url
+    return conf_url
 
 def main():
     # Load YOLOv8 model (pre-trained on COCO)
@@ -110,4 +110,5 @@ def main():
 
 if __name__ == "__main__":
     traffic_detection_welcoming_notes()
-    url = build_conf()
+    url = make_url_based_on_conf()
+    print("Accessing URL: ", url, "................")
