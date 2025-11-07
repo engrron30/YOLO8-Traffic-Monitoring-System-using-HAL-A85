@@ -49,33 +49,6 @@ def build_conf():
     return url
 
 def main():
-    # Local Demo Files Defines
-    demo_vid_file_type = "mp4"
-    demo_vid_dir = "Sample Data"
-    if DEMO_ERROR_VIDEO:
-        demo_vid_name = f"vid-with-malicious-traffic.{demo_vid_file_type}"
-    else:
-        demo_vid_name = f"vid-with-normal-traffic.{demo_vid_file_type}"
-
-    # Remote Live Stream Defines
-    user_name = "hwjk"
-    user_pass = "pa6tb7"
-    ipv4_addr = "192.168.1.10"
-    resource_path = "cam/realmonitor"
-    channel_num = 1
-    subtype_num = 0
-    if REMOTE_STREAM_USE_RTSP:
-        remote_protocol = "rtsp"
-        remote_port = 554
-    else:
-        remote_protocol = "http"
-        remote_port = 80
-
-    if DEMO_LOCAL_STREAM:
-        url = f"{demo_vid_dir}/{demo_vid_name}"
-    else:
-        url = f"{remote_protocol}://{user_name}:{user_pass}@{ipv4_addr}:{remote_port}/{resource_path}?channel={channel_num}&subtype={subtype_num}"
-
     # Load YOLOv8 model (pre-trained on COCO)
     model = YOLO("yolov8n.pt")  # small model; can use yolov8m.pt or yolov8l.pt for more accuracy
 
