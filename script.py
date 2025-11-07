@@ -3,6 +3,7 @@ from ultralytics import YOLO
 
 DEMO_LOCAL_STREAM = True            # Set this true if to detect local video for testing
 DEMO_ERROR_VIDEO = False            # Set this true if traffic with collision is to test
+REMOTE_STREAM_USE_RTSP = True
 
 # Local Demo Files Defines
 demo_vid_file_type = "mp4"
@@ -16,11 +17,14 @@ else:
 user_name = "hwjk"
 user_pass = "pa6tb7"
 ipv4_addr = "192.168.1.10"
-protocol = "rtsp"
 rtsp_port = 554             # default RSTP Port
 resource_path = "cam/realmonitor"
 channel_num = 1
 subtype_num = 0
+if REMOTE_STREAM_USE_RTSP:
+    protocol = "rtsp"
+else:
+    protocol = "http"
 
 # Live Stream Link
 if DEMO_LOCAL_STREAM:
