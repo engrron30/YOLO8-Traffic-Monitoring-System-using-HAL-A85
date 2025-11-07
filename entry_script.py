@@ -17,7 +17,7 @@ def traffic_detection_welcoming_notes():
     print("###         SYSTEM with AI-DETECTION          ###")
     print("###                                           ###")
     print("#################################################")
-    print("#################################################")
+    print("#################################################\n")
 
 # Prepare configuration before running the actual live stream with
 #   AI Detection to define which file or stream to use.
@@ -110,5 +110,6 @@ def main():
 
 if __name__ == "__main__":
     traffic_detection_welcoming_notes()
+
     url = make_url_based_on_conf()
     print("Accessing URL: ", url, "................")
