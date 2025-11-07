@@ -1,6 +1,8 @@
 import cv2
 from ultralytics import YOLO
 
+DEMO_LOCAL_STREAM = True
+
 # Credentials and Other Details to Fill-Up Livestream URL
 user_name = "hwjk"
 user_pass = "pa6tb7"
