@@ -17,19 +17,20 @@ else:
 user_name = "hwjk"
 user_pass = "pa6tb7"
 ipv4_addr = "192.168.1.10"
-rtsp_port = 554             # default RSTP Port
 resource_path = "cam/realmonitor"
 channel_num = 1
 subtype_num = 0
 if REMOTE_STREAM_USE_RTSP:
-    protocol = "rtsp"
+    remote_protocol = "rtsp"
+    remote_port = 554
 else:
-    protocol = "http"
+    remote_protocol = "http"
+    remote_port = 80
 
 # Live Stream Link
 if DEMO_LOCAL_STREAM:
     url = f"Videos/"
-url = f"{protocol}://{user_name}:{user_pass}@{ipv4_addr}:{rtsp_port}/{resource_path}?channel={channel_num}&subtype={subtype_num}"
+url = f"{remote_protocol}://{user_name}:{user_pass}@{ipv4_addr}:{remote_port}/{resource_path}?channel={channel_num}&subtype={subtype_num}"
 
 # Load YOLOv8 model (pre-trained on COCO)
 model = YOLO("yolov8n.pt")  # small model; can use yolov8m.pt or yolov8l.pt for more accuracy
