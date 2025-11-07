@@ -27,10 +27,10 @@ else:
     remote_protocol = "http"
     remote_port = 80
 
-# Live Stream Link
 if DEMO_LOCAL_STREAM:
-    url = f"Videos/"
-url = f"{remote_protocol}://{user_name}:{user_pass}@{ipv4_addr}:{remote_port}/{resource_path}?channel={channel_num}&subtype={subtype_num}"
+    url = f"{demo_vid_dir}/{demo_vid_file_type}"
+else:
+    url = f"{remote_protocol}://{user_name}:{user_pass}@{ipv4_addr}:{remote_port}/{resource_path}?channel={channel_num}&subtype={subtype_num}"
 
 # Load YOLOv8 model (pre-trained on COCO)
 model = YOLO("yolov8n.pt")  # small model; can use yolov8m.pt or yolov8l.pt for more accuracy
