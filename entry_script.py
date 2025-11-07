@@ -93,4 +93,9 @@ def main():
     cv2.destroyAllWindows()
 
 if __name__ == "__main__":
-    print("Hello")
+    print("#################################################")
+    print("###                                           ###")
+    print("###           TRAFFIC MONITORING              ###")
+    print("###         SYSTEM with AI-DETECTION          ###")
+    print("###                                           ###")
+    print("#################################################")
