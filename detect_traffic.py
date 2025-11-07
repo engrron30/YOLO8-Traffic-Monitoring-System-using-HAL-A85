@@ -2,11 +2,11 @@ import cv2
 from ultralytics import YOLO
 
 
-def run_traffic_detection():
+def run_traffic_detection(camera_url):
     # Load YOLOv8 model (pre-trained on COCO)
     model = YOLO("yolov8n.pt")  # small model; can use yolov8m.pt or yolov8l.pt for more accuracy
 
-    cap = cv2.VideoCapture(url)
+    cap = cv2.VideoCapture(camera_url)
     if not cap.isOpened():
         print("Failed to open stream")
         exit()

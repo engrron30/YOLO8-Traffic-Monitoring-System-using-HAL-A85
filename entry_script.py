@@ -117,4 +117,4 @@ if __name__ == "__main__":
     traffic_detection_welcoming_notes()
 
     url = make_url_based_on_conf()
-    print("Accessing URL: ", url, "................")
+    run_traffic_detection(url)
