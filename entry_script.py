@@ -7,10 +7,12 @@ REMOTE_STREAM_USE_RTSP      = True
 
 def traffic_detection_welcoming_notes():
     print("#################################################")
+    print("#################################################")
     print("###                                           ###")
     print("###           TRAFFIC MONITORING              ###")
     print("###         SYSTEM with AI-DETECTION          ###")
     print("###                                           ###")
+    print("#################################################")
     print("#################################################")
 
 def main():
