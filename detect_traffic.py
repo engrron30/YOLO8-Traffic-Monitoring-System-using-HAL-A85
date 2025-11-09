@@ -1,6 +1,7 @@
 import cv2
 import time
 from ultralytics import YOLO
+from alert_system import send_gsm_sms_alert, alert_system_due_to_collision
 
 YOLO_MODEL_USE_TYPE = 1
 YOLO_MODEL_DEFAULT = "yolov8n.pt"
@@ -16,8 +17,8 @@ DETECT_OBJECTS = [
     "bus",
     "motorbike",
 ]
-DETECT_TRAFFIC_COLLISION = 0
-DETECT_COLLISION_THRESHOLD_SECONDS = 5
+DETECT_TRAFFIC_COLLISION = 1
+DETECT_COLLISION_THRESHOLD_SECONDS = 2
 CROSS_LINE_SIZE = 60
 
 def make_model_based_on_conf():
@@ -94,6 +95,7 @@ def run_traffic_detection_with_collision(cap, model, window, overlap_timers, fra
                     start_time = overlap_timers.get(key, current_time)
                     if current_time - start_time >= DETECT_COLLISION_THRESHOLD_SECONDS:
                         # Draw collision alert
+                        alert_system_due_to_collision()
                         x1, y1, x2, y2 = box1
                         cx, cy = (x1 + x2)//2, (y1 + y2)//2
                         cv2.putText(frame, "COLLISION!", (cx-50, cy-10), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 3)
