@@ -10,7 +10,12 @@ YOLO_MODEL_TYPES = [
 YOLO_MODEL_NAME = "yolov8n.pt"
 
 def make_model_based_on_conf():
-    model = YOLO_MODEL_NAME
+    model = ""
+
+    for model_id, model_name in YOLO_MODEL_TYPES:
+        if model_id == YOLO_MODEL_USE_TYPE:
+            model = model_name
+            break
     return model
 
 def run_traffic_detection(camera_url):
