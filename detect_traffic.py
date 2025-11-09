@@ -16,7 +16,7 @@ DETECT_OBJECTS = [
     "bus",
     "motorbike",
 ]
-DETECT_TRAFFIC_COLLISION = True
+DETECT_TRAFFIC_COLLISION = 0
 DETECT_COLLISION_THRESHOLD_SECONDS = 5
 CROSS_LINE_SIZE = 60
 
@@ -39,12 +39,6 @@ def boxes_overlap(box1, box2):
     return not (x1_max < x2_min or x1_min > x2_max or y1_max < y2_min or y1_min > y2_max)
 
 def run_traffic_detection(camera_url, model_name):
-    if DETECT_TRAFFIC_COLLISION:
-        run_traffic_detection_with_collision(camera_url, model_name)
-    else:
-        run_traffic_detection_normally(camera_url, model_name)
-
-def run_traffic_detection_with_collision(camera_url, model_name):
     model = YOLO(model_name)
     cap = cv2.VideoCapture(camera_url)
 
@@ -54,11 +48,15 @@ def run_traffic_detection_with_collision(camera_url, model_name):
 
     window = "Traffic Detection"
     cv2.namedWindow(window, cv2.WINDOW_NORMAL)
-
     overlap_timers = {}  # {(id1, id2): start_time}
-
     frame_id = 0
 
+    if DETECT_TRAFFIC_COLLISION:
+        run_traffic_detection_with_collision(cap, model, window, overlap_timers, frame_id)
+    else:
+        run_traffic_detection_normally(cap, model, window, overlap_timers, frame_id)
+
+def run_traffic_detection_with_collision(cap, model, window, overlap_timers, frame_id):
     while True:
         ret, frame = cap.read()
         if not ret:
@@ -116,20 +114,7 @@ def run_traffic_detection_with_collision(camera_url, model_name):
     cap.release()
     cv2.destroyAllWindows()
 
-def run_traffic_detection_normally(camera_url, model_name):
-    model = YOLO(model_name)
-    cap = cv2.VideoCapture(camera_url)
-
-    if not cap.isOpened():
-        print("Failed to open stream")
-        exit()
-
-    window = "Traffic Detection"
-    cv2.namedWindow(window, cv2.WINDOW_NORMAL)
-
-    prev_positions = {}
-    frame_id = 0
-
+def run_traffic_detection_normally(cap, model, window, prev_positions, frame_id):
     while True:
         ret, frame = cap.read()
         if not ret:
