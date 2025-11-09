@@ -1,10 +1,16 @@
 import cv2
 from ultralytics import YOLO
 
+YOLO_MODEL_USE_TYPE = 1
+YOLO_MODEL_TYPES = [
+    (1, "yolov8n.pt"),
+    (2, "yolov8m.pt"),
+    (3, "yolov8l.pt")
+]
 YOLO_MODEL_NAME = "yolov8n.pt"
 
 def make_model_based_on_conf():
-    model = YOLO_MODEL_NAME;
+    model = YOLO_MODEL_NAME
     return model
 
 def run_traffic_detection(camera_url):
