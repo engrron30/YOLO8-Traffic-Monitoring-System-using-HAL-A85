@@ -1,18 +1,19 @@
 import cv2
 from ultralytics import YOLO
+from deep_sort_realtime.deepsort_tracker import DeepSort
 
 YOLO_MODEL_USE_TYPE = 1
+YOLO_MODEL_DEFAULT = "yolov8n.pt"
 YOLO_MODEL_TYPES = [
     (1, "yolov8n.pt"),
     (2, "yolov8m.pt"),
     (3, "yolov8l.pt")
 ]
-YOLO_MODEL_NAME = "yolov8n.pt"
 
 def make_model_based_on_conf():
     # Load YOLOv8 model (pre-trained on COCO)
     # small model; can use yolov8m.pt or yolov8l.pt for more accuracy
-    model = ""
+    model = YOLO_MODEL_DEFAULT
 
     for model_id, model_name in YOLO_MODEL_TYPES:
         if model_id == YOLO_MODEL_USE_TYPE:
