@@ -10,6 +10,13 @@ YOLO_MODEL_TYPES = [
     (3, "yolov8l.pt")
 ]
 
+DETECT_OBJECTS = [
+    "car",
+    "truck",
+    "bus",
+    "motorbike"
+]
+
 def make_model_based_on_conf():
     # Load YOLOv8 model (pre-trained on COCO)
     # small model; can use yolov8m.pt or yolov8l.pt for more accuracy
@@ -53,7 +60,7 @@ def run_traffic_detection(camera_url, model_name):
                 cls = int(box.cls[0])
                 label = model.names[cls]
 
-                if label not in ["car", "truck", "bus", "motorbike"]:
+                if label not in DETECT_OBJECTS:
                     continue
 
                 x1, y1, x2, y2 = map(int, box.xyxy[0])
