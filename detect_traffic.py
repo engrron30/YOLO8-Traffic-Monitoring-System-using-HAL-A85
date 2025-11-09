@@ -1,6 +1,10 @@
 import cv2
 from ultralytics import YOLO
 
+def make_model_based_on_conf():
+    model = YOLO_MODEL_NAME;
+    return model
+
 def run_traffic_detection(camera_url):
     # Load YOLOv8 model (pre-trained on COCO)
     model = YOLO("yolov8n.pt")  # small model; can use yolov8m.pt or yolov8l.pt for more accuracy
