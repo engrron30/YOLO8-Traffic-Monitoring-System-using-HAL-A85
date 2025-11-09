@@ -1,4 +1,4 @@
-from detect_traffic import run_traffic_detection
+from detect_traffic import run_traffic_detection, make_model_based_on_conf
 
 REMOTE_STREAM_USE_RTSP      = True
 REMOTE_STREAM_IPV4_ADDRESS  = "192.168.1.10"
@@ -56,4 +56,5 @@ if __name__ == "__main__":
     traffic_detection_welcoming_notes()
 
     camera_source = make_camsource_based_on_conf()
+    model_name = make_model_based_on_conf()
     run_traffic_detection(camera_source)
