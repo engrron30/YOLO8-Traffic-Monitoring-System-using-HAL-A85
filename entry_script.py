@@ -23,7 +23,7 @@ def traffic_detection_welcoming_notes():
 
 # Prepare configuration before running the actual live stream with
 #   AI Detection to define which file or stream to use.
-def make_url_based_on_conf():
+def make_camsource_based_on_conf():
     if DEMO_ERROR_VIDEO:
         demo_vid_name = f"vid-with-malicious-traffic.{DEMO_VID_FILE_TYPE}"
     else:
@@ -47,7 +47,7 @@ def make_url_based_on_conf():
     if DEMO_LOCAL_STREAM:
         conf_url = f"{DEMO_VID_DIR}/{demo_vid_name}"
     else:
-        conf_url = f"{remote_protocol}://{user_name}:{user_pass}@{ipv4_addr}:{remote_port}/{resource_path}?channel={channel_num}&subtype={subtype_num}"
+        conf_url = f"{remote_protocol}://{user_name}:{user_pass}@{ipv4_addr}:   {remote_port}/{resource_path}?channel={channel_num}&subtype={subtype_num}"
 
     return conf_url
 
@@ -55,5 +55,5 @@ def make_url_based_on_conf():
 if __name__ == "__main__":
     traffic_detection_welcoming_notes()
 
-    camera_source = make_url_based_on_conf()
+    camera_source = make_camsource_based_on_conf()
     run_traffic_detection(camera_source)
