@@ -5,7 +5,7 @@ REMOTE_STREAM_IPV4_ADDRESS  = "192.168.1.10"
 REMOTE_STREAM_USER_NAME     = "hwjk"
 REMOTE_STREAM_USER_PASSWORD = "pa6tb7"
 
-DEMO_LOCAL_STREAM           = True      # Set this true if to detect local video for testing
+DEMO_LOCAL_STREAM           = False      # Set this true if to detect local video for testing
 DEMO_ERROR_VIDEO            = False     # Set this true if traffic with collision is to test
 DEMO_VID_FILE_TYPE          = "mp4"
 DEMO_VID_DIR                = "Sample Data"
@@ -57,4 +57,4 @@ if __name__ == "__main__":
 
     camera_source = make_camsource_based_on_conf()
     model_name = make_model_based_on_conf()
-    run_traffic_detection(camera_source)
+    run_traffic_detection(camera_source, model_name)
