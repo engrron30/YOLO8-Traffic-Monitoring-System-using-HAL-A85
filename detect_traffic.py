@@ -102,8 +102,8 @@ def run_traffic_detection_with_collision(cap, model, window, overlap_timers, fra
                         cv2.rectangle(frame, (x1, y1), (x2, y2), (0,0,255), 3)
 
                     new_overlap_timers[key] = start_time
-        overlap_timers = new_overlap_timers
 
+        overlap_timers = new_overlap_timers
         cv2.imshow(window, frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
