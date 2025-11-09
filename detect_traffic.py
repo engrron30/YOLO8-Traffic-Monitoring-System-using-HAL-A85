@@ -1,6 +1,8 @@
 import cv2
 from ultralytics import YOLO
 
+YOLO_MODEL_NAME = "yolov8n.pt"
+
 def make_model_based_on_conf():
     model = YOLO_MODEL_NAME;
     return model
