@@ -6,10 +6,12 @@ YOLO_MODEL_TYPES = [
     (1, "yolov8n.pt"),
     (2, "yolov8m.pt"),
     (3, "yolov8l.pt")
-                    ]
+]
 YOLO_MODEL_NAME = "yolov8n.pt"
 
 def make_model_based_on_conf():
+    # Load YOLOv8 model (pre-trained on COCO)
+    # small model; can use yolov8m.pt or yolov8l.pt for more accuracy
     model = ""
 
     for model_id, model_name in YOLO_MODEL_TYPES:
@@ -20,10 +22,9 @@ def make_model_based_on_conf():
     return model
 
 def run_traffic_detection(camera_url, model_name):
-    # Load YOLOv8 model (pre-trained on COCO)
-    model = YOLO(model_name)  # small model; can use yolov8m.pt or yolov8l.pt for more accuracy
-
+    model = YOLO(model_name)
     cap = cv2.VideoCapture(camera_url)
+
     if not cap.isOpened():
         print("Failed to open stream")
         exit()
