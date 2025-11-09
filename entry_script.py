@@ -55,5 +55,5 @@ def make_url_based_on_conf():
 if __name__ == "__main__":
     traffic_detection_welcoming_notes()
 
-    url = make_url_based_on_conf()
-    run_traffic_detection(url)
+    camera_source = make_url_based_on_conf()
+    run_traffic_detection(camera_source)
